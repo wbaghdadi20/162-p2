@@ -42,11 +42,11 @@ nav a {
 
 /* Sidebar Styles */
 .sidebar {
-    height: 0; /* Initial height, adjusted by JS */
+    height: 0;
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 0; /* Initial top, adjusted by JS */
+    top: 0;
     left: 0;
     background-color: blue;
     overflow-x: hidden;
@@ -70,7 +70,7 @@ nav a {
 .games-container {
     display: flex;
     justify-content: center;
-    align-items: center; /* Ensure vertical alignment */
+    align-items: center;
     flex-wrap: wrap;
     padding-top: 10vh;
 }
@@ -79,7 +79,7 @@ nav a {
     background-size: cover;
     border-radius: 10px;
     margin: 20px;
-    width: 300px; /* Larger size for visibility */
+    width: 300px;
     height: 300px;
     transition: transform 0.3s;
 }

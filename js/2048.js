@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (score > highScore) {
             highScore = score;
             highScoreDisplay.innerHTML = highScore;
-            localStorage.setItem('highScore', highScore);  // Save the new high score in localStorage
+            localStorage.setItem('highScore', highScore);
         }
     }
 
@@ -62,11 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.getElementById('reset-button').addEventListener('click', function() {
-        gridContainer.innerHTML = ''; // Clear the existing tiles
+        gridContainer.innerHTML = '';
         tiles = [];
         score = 0;
         scoreDisplay.innerHTML = score;
-        init(); // Reinitialize the game
+        init();
     });
 
 
@@ -107,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     tiles[i * 4 + j].innerHTML = row[j];
                     tiles[i * 4 + j].style.backgroundColor = getColor(row[j]);
                 }
-                // Set the ID based on font size classification
                 let fontSizeID = getFontSizeID(row[j]);
                 tiles[j * 4 + i].setAttribute('data-font-size-id', fontSizeID);
             }
@@ -117,13 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function getFontSizeID(value) {
         if (value.length <= 2) {
-            return 'small-font'; // For single and double digit numbers
+            return 'small-font';
         } else if (value.length === 3) {
-            return 'medium-font'; // For triple digit numbers
+            return 'medium-font';
         } else if (value.length === 4) {
-            return 'large-font'; // For 4-digit numbers
+            return 'large-font';
         } else {
-            return 'default-font'; // Default font size
+            return 'default-font';
         }
     }
     
