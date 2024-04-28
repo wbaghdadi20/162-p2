@@ -10,7 +10,7 @@ function getElementHeight(selector) {
 function adjustSidebar() {
     const headerHeight = getElementHeight('header');
     const footerHeight = getElementHeight('footer');
-    const sidebar = document.getElementById('mySidebar');
+    const sidebar = document.getElementsByClassName('sidebar');
     sidebar.style.top = headerHeight + 'px';
     sidebar.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
 }
