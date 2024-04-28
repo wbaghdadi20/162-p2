@@ -1,0 +1,103 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+main {
+    padding: 0px 10vh;
+    background-image: 'arcade.webp';
+}
+
+header, footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+header {
+    position: relative;
+    padding: 30px;
+}
+
+h1 {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    height: 0; /* Initial height, adjusted by JS */
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0; /* Initial top, adjusted by JS */
+    left: 0;
+    background-color: blue;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Game Container Styles */
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Ensure vertical alignment */
+    flex-wrap: wrap;
+    padding-top: 10vh;
+}
+
+.game {
+    background-size: cover;
+    border-radius: 10px;
+    margin: 20px;
+    width: 300px; /* Larger size for visibility */
+    height: 300px;
+    transition: transform 0.3s;
+}
+
+.game:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.welcome-message p {
+    text-align: center;
+    font-size: 20px;
+    margin: 20px 0;
+    color: #555;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
