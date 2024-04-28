@@ -67,7 +67,7 @@ nav a {
 }
 
 /* Game Container Styles */
-.game-container {
+.games-container {
     display: flex;
     justify-content: center;
     align-items: center; /* Ensure vertical alignment */
