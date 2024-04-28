@@ -10,7 +10,7 @@ function getElementHeight(selector) {
 function adjustSidebar() {
     const headerHeight = getElementHeight('header');
     const footerHeight = getElementHeight('footer');
-    const sidebar = document.getElementsByClassName('sidebar');
+    const sidebar = document.querySelector('.sidebar');
     sidebar.style.top = headerHeight + 'px';
     sidebar.style.height = `calc(100vh - ${headerHeight + footerHeight}px)`;
 }
@@ -26,7 +26,7 @@ function adjustGameContainerPadding() {
 function toggleNav() {
     adjustSidebar();  // Ensure sidebar dimensions are adjusted before toggling
     const sidebarWidth = sidebarOpen ? '0' : '150px';  // Toggle width between 0 and 150px
-    document.getElementById("mySidebar").style.width = sidebarWidth;
+    document.querySelector(".sidebar").style.width = sidebarWidth;
     sidebarOpen = !sidebarOpen;  // Toggle the state
 }
 
