@@ -1,0 +1,35 @@
+.game-container {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns, equal fraction of available space */
+    gap: 10px;
+    background-color: #bbada0;
+    padding: 10px;
+    width: 70vh; /* Width calculation to accommodate all tiles plus gaps */
+    height: 70vh; /* Same as width to maintain square aspect ratio */
+    border-radius: 40x;
+    margin: 0 auto; /* Centering the grid container horizontally */
+    justify-content: center; /* Center items horizontally in the grid */
+    align-items: center; /* Center items vertically in the grid */
+}
+
+.grid-cell {
+    background-color: #cdc1b4;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    width: 100%; /* Fixed width for each cell */
+    height: 100%; /* Fixed height for each cell */
+    font-size: 50px; /* Consistent font size */
+    font-weight: bold;
+    color: #776e65;
+    text-align: start; /* Ensure text is centered */
+}
+
