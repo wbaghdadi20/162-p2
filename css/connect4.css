@@ -1,7 +1,27 @@
-/* .board {
-    height: 60%;
-    width: 70%;
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
 
+.board {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns */
+    grid-gap: 10px; /* Space between cells */
+    padding: 10px;
     background-color: blue;
     border: 5px solid navy;
-} */
+    width: 70vh; /* Adjust based on your needs */
+    height: 60vh; /* Adjust based on your needs */
+}
+
+.circle {
+    width: 80%; /* Slightly smaller than the cell for a margin */
+    height: 80%;
+    background-color: white; /* Initial color of the circle */
+    border: 2px solid navy;
+    border-radius: 50%; /* Makes the circle round */
+}
