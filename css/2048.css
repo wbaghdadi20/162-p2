@@ -7,29 +7,102 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns, equal fraction of available space */
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    background-color: #bbada0;
-    padding: 10px;
-    width: 70vh; /* Width calculation to accommodate all tiles plus gaps */
-    height: 70vh; /* Same as width to maintain square aspect ratio */
-    border-radius: 40x;
-    margin: 0 auto; /* Centering the grid container horizontally */
-    justify-content: center; /* Center items horizontally in the grid */
-    align-items: center; /* Center items vertically in the grid */
+    background-color: #8d7a66; /* Darkened for better contrast with tiles */
+    padding: 15px; /* Adjusted padding for better spacing */
+    width: 50vh;
+    height: 50vh;
+    border-radius: 15px; /* Smoother curve */
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .grid-cell {
-    background-color: #cdc1b4;
-    border-radius: 5px;
+    background-color: #ece0d1; /* Lighter color for better visibility */
+    border-radius: 15px;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    width: 100%; /* Fixed width for each cell */
-    height: 100%; /* Fixed height for each cell */
-    font-size: 50px; /* Consistent font size */
+    justify-content: center;
+    align-items: center;
+    width: calc((50vh - 60px) / 4); /* Adjusted calculation for consistent sizing */
+    height: calc((50vh - 60px) / 4);
+    font-size: 55px; /* Slightly larger font for better readability */
     font-weight: bold;
-    color: #776e65;
-    text-align: start; /* Ensure text is centered */
+    color: #7d736a; /* Darkened text color for better readability */
+    text-align: center;
 }
 
+.score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7d736a; /* Dark text color for better readability */
+    margin: 10px 0; /* Adds margin above and below the score */
+    padding: 10px; /* Padding inside the text box */
+    background-color: #f9f9f9; /* Light grey background for the score box */
+    border: 1px solid #ccc; /* Light grey border around the score box */
+    border-radius: 5px; /* Rounded corners for the score box */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds subtle shadow for depth */
+    display: inline-block; /* Makes the div only as wide as its content */
+    min-width: 160px; /* Minimum width to ensure consistency */
+    text-align: center; /* Centers the text inside the box */
+}
+
+.high-score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff; /* This is assuming you want the high score text in white */
+    margin: 0; /* Resets any default margins */
+}
+
+.game-rules {
+    padding: 20px; /* Provides padding inside the container */
+    border: 2px solid #8f7a66; /* Solid border for the box */
+    background-color: #fff; /* White background for the box */
+    border-radius: 10px; /* Rounded corners for the box */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds subtle shadow for depth */
+    margin: 20px; /* Adds margin around the box */
+}
+
+.game-rules h2 {
+    font-size: 25px; /* Increased from a typical 18px-24px for headers */
+    font-weight: bold; /* Ensures it's bold and stands out */
+    color: #3c4147; /* A darker, more readable color */
+}
+
+.game-rules p {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Sets Comic Sans MS as the font */
+    font-size: 20px; /* Maintains a larger font size for readability */
+    color: #333; /* Darker text color for better readability */
+    line-height: 1.6; /* Increases line height for readability */
+    background-color: #f9f9f9; /* Light grey background for just the paragraph */
+    padding: 10px; /* Padding inside the text box */
+    border: 1px solid #ccc; /* Light grey border around the text */
+    border-radius: 5px; /* Rounded corners for the text background */
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between; /* This ensures elements are spaced evenly */
+    align-items: center; /* This vertically centers elements in the container */
+    padding: 10px;
+    background-color: #8f7a66;
+    border-radius: 5px; /* Adjusted for a subtle curve if desired */
+    margin: 10px; /* This provides space around the container */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Optional: Adds depth with a shadow */
+}
+
+button {
+    padding: 12px 25px; /* More balanced padding */
+    font-size: 25px; /* Larger font size for better readability */
+    color: #000000;
+    background-color: #ece0d1; /* More neutral, stylish button color */
+    border: none;
+    border-radius: 8px; /* Smoother rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+button:hover {
+    background-color: #8f8277; /* Lighter hover color */
+}
