@@ -1,8 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gridContainer = document.querySelector('.grid-container');
     const scoreDisplay = document.querySelector('.score span');
+    const highScoreDisplay = document.querySelector('.high-score span');
     let tiles = [];
     let score = 0;
+    let highScore = parseInt(localStorage.getItem('highScore')) || 0;
+    highScoreDisplay.innerHTML = highScore;
+
+    function updateScore(newScore) {
+        score = newScore;
+        scoreDisplay.innerHTML = score;
+        if (score > highScore) {
+            highScore = score;
+            highScoreDisplay.innerHTML = highScore;
+            localStorage.setItem('highScore', highScore);
+        }
+    }
 
     function init() {
         for (let i = 0; i < 16; i++) {
@@ -38,13 +51,29 @@ document.addEventListener('DOMContentLoaded', () => {
             '512': '#edc850',
             '1024': '#edc53f',
             '2048': '#edc22e',
+            '4096': '#3c3a32',
+            '8192': '#3c3a33',
+            '16384': '#3c3a34',
+            '32768': '#3c3a35',
+            '65536': '#3c3a36',
+            '131072': '#3c3a37'
         };
         return colorMap[value] || '#cdc1b4';
     }
 
+    document.getElementById('reset-button').addEventListener('click', function() {
+        gridContainer.innerHTML = '';
+        tiles = [];
+        score = 0;
+        scoreDisplay.innerHTML = score;
+        init();
+    });
+
+
     function move(direction) {
         if (slideTiles(direction)) {
             addNumber();
+            updateScore(score);
             checkGameOver();
         }
     }
@@ -78,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     tiles[i * 4 + j].innerHTML = row[j];
                     tiles[i * 4 + j].style.backgroundColor = getColor(row[j]);
                 }
-                // Set the ID based on font size classification
                 let fontSizeID = getFontSizeID(row[j]);
                 tiles[j * 4 + i].setAttribute('data-font-size-id', fontSizeID);
             }
@@ -88,13 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function getFontSizeID(value) {
         if (value.length <= 2) {
-            return 'small-font'; // For single and double digit numbers
+            return 'small-font';
         } else if (value.length === 3) {
-            return 'medium-font'; // For triple digit numbers
+            return 'medium-font';
         } else if (value.length === 4) {
-            return 'large-font'; // For 4-digit numbers
+            return 'large-font';
         } else {
-            return 'default-font'; // Default font size
+            return 'default-font';
         }
     }
     

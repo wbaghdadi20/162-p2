@@ -7,29 +7,102 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns, equal fraction of available space */
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-    background-color: #bbada0;
-    padding: 10px;
-    width: 70vh; /* Width calculation to accommodate all tiles plus gaps */
-    height: 70vh; /* Same as width to maintain square aspect ratio */
-    border-radius: 40x;
-    margin: 0 auto; /* Centering the grid container horizontally */
-    justify-content: center; /* Center items horizontally in the grid */
-    align-items: center; /* Center items vertically in the grid */
+    background-color: #8d7a66;
+    padding: 15px;
+    width: 50vh;
+    height: 50vh;
+    border-radius: 15px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .grid-cell {
-    background-color: #cdc1b4;
-    border-radius: 5px;
+    background-color: #ece0d1;
+    border-radius: 15px;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    width: 100%; /* Fixed width for each cell */
-    height: 100%; /* Fixed height for each cell */
-    font-size: 50px; /* Consistent font size */
+    justify-content: center;
+    align-items: center;
+    width: calc((50vh - 60px) / 4);
+    height: calc((50vh - 60px) / 4);
+    font-size: 55px;
     font-weight: bold;
-    color: #776e65;
-    text-align: start; /* Ensure text is centered */
+    color: #7d736a;
+    text-align: center;
 }
 
+.score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7d736a;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: inline-block;
+    min-width: 160px;
+    text-align: center;
+}
+
+.high-score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+.game-rules {
+    padding: 20px;
+    border: 2px solid #8f7a66;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+}
+
+.game-rules h2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #3c4147;
+}
+
+.game-rules p {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 20px;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #8f7a66;
+    border-radius: 5px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 25px;
+    color: #000000;
+    background-color: #ece0d1;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #8f8277;
+}

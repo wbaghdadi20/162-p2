@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Game 2 - 2048</title>
+    <title>Game Arcade - 2048</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/2048.css">
 </head>
@@ -12,9 +12,13 @@
         <nav>
             <a href="index.html">&#8592; Back</a>
         </nav>
-        <h1>Game 2 - 2048</h1>
+        <h1>2048</h1>
     </header>
     <main>
+        <section class="game-controls">
+            <button id="reset-button">Reset Game</button>
+            <p class="high-score">High Score: <span>0</span></p>
+        </section>
         <section class="game-rules">
             <h2>How to Play</h2>
             <p>Use your arrow keys to move the tiles. Tiles with the same number merge into one when they touch. Add them up to reach 2048!</p>
@@ -22,7 +26,7 @@
         <section class="game-play">
             <div class="game-container">
                 <div class="grid-container"></div>
-                <p class="score">Score: <span>0</span></p>
+                <p class="score">Current Score: <span>0</span></p>
             </div>
         </section>
     </main>
