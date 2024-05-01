@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Prevent arrow key scrolling
+    document.addEventListener('keydown', function(event) {
+        if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+            event.preventDefault();
+        }
+    });
+    
     const gridContainer = document.querySelector('.grid-container');
     const scoreDisplay = document.querySelector('.score span');
     const highScoreDisplay = document.querySelector('.high-score span');
