@@ -1,10 +1,3 @@
-.game-container {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -55,54 +48,25 @@
     margin: 0;
 }
 
-.game-rules {
-    padding: 20px;
-    border: 2px solid #8f7a66;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin: 20px;
-}
-
-.game-rules h2 {
-    font-size: 25px;
-    font-weight: bold;
-    color: #3c4147;
-}
-
-.game-rules p {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 20px;
-    color: #333;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
 .game-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
     background-color: #8f7a66;
-    border-radius: 5px;
-    margin: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 button {
-    padding: 12px 25px;
-    font-size: 25px;
-    color: #000000;
     background-color: #ece0d1;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #8f8277;
+}
+
+@media (max-width: 688px) {
+    .grid-container {
+        height: calc(50vh * .7);
+        width: calc(50vh * .7);
+    }
+    .grid-cell {
+        width: calc(calc((50vh - 60px) / 4) * .7);
+        height: calc(calc((50vh - 60px) / 4) * .7);
+    }
 }

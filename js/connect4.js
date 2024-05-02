@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeGame();
 });
 
-let currentPlayer = 'red'; // Start with player 'red'
+let currentPlayer = 'red';
 let gameActive = true;
+let board = document.querySelector('.board');
 
 function createBoard(rows, cols) {
-    const board = document.querySelector('.board');
-    board.innerHTML = ''; // Clear existing board
+    board.innerHTML = '';
 
     for (let c = 0; c < cols; c++){
         const columns = document.createElement('div');
@@ -27,6 +27,11 @@ function initializeGame() {
     columns.forEach((col, index) => {
         col.addEventListener('click', () => handleColumnClick(index));
     });
+    const playerSpan = document.querySelector('.current-player');
+    playerSpan.textContent = 'Red'; 
+    playerSpan.style.color = 'red';
+    currentPlayer = 'red';
+    gameActive = true;
 }
 
 function handleColumnClick(colIndex) {
@@ -38,17 +43,17 @@ function handleColumnClick(colIndex) {
         if (!circle.style.backgroundColor) { // Check if the circle is not yet filled
             circle.style.backgroundColor = currentPlayer; // Set the player's color
             let winner = checkWinner();
+            console.log(winner);
             if (winner) {
-                if (winner === 'tie') {
-                    // alert("It's a tie!");
-                } else {
-                    // alert(winner + ' wins!');
-                }
                 gameActive = false;
-                columns.forEach(col => {
-                    col.style.cursor = "default";
-                })
-                return;
+                columns.forEach(col => col.style.pointerEvents = "none");
+                const playerInfo = document.querySelector('.player-info');
+                if (winner === 'tie') {
+                    playerInfo.innerHTML = "Draw"; // Plain text for draw
+                    playerInfo.style.color = 'black'; // Default color for text
+                } else {
+                    playerInfo.innerHTML = `Winner: <span style="color: ${winner};">${winner.charAt(0).toUpperCase() + winner.slice(1)}</span>`;
+                }
             }
             togglePlayer(); // Switch to the other player
             break;
@@ -59,52 +64,51 @@ function handleColumnClick(colIndex) {
 function checkWinner() {
     const rows = 6;
     const cols = 7;
-    const board = [];
+    const board_array = [];
     
-    // Build a 2D array from the current state of the board
     for (let c = 0; c < cols; c++) {
         const column = document.querySelectorAll('.column')[c].children;
-        board[c] = [];
+        board_array[c] = [];
         for (let r = 0; r < rows; r++) {
-            board[c][r] = column[r].style.backgroundColor;
+            board_array[c][r] = column[r].style.backgroundColor;
         }
     }
 
     // Check for a winner in all directions
     for (let c = 0; c < cols; c++) {
         for (let r = 0; r < rows; r++) {
-            let color = board[c][r];
+            let color = board_array[c][r];
             if (!color) continue;
 
             // Horizontal
             if (c <= cols - 4 &&
-                color === board[c + 1][r] && 
-                color === board[c + 2][r] && 
-                color === board[c + 3][r]) {
+                color === board_array[c + 1][r] && 
+                color === board_array[c + 2][r] && 
+                color === board_array[c + 3][r]) {
                 return color;
             }
 
             // Vertical
             if (r <= rows - 4 &&
-                color === board[c][r + 1] && 
-                color === board[c][r + 2] && 
-                color === board[c][r + 3]) {
+                color === board_array[c][r + 1] && 
+                color === board_array[c][r + 2] && 
+                color === board_array[c][r + 3]) {
                 return color;
             }
 
             // Diagonal Right
             if (c <= cols - 4 && r <= rows - 4 &&
-                color === board[c + 1][r + 1] && 
-                color === board[c + 2][r + 2] && 
-                color === board[c + 3][r + 3]) {
+                color === board_array[c + 1][r + 1] && 
+                color === board_array[c + 2][r + 2] && 
+                color === board_array[c + 3][r + 3]) {
                 return color;
             }
 
             // Diagonal Left
             if (c >= 3 && r <= rows - 4 &&
-                color === board[c - 1][r + 1] && 
-                color === board[c - 2][r + 2] && 
-                color === board[c - 3][r + 3]) {
+                color === board_array[c - 1][r + 1] && 
+                color === board_array[c - 2][r + 2] && 
+                color === board_array[c - 3][r + 3]) {
                 return color;
             }
         }
@@ -115,9 +119,16 @@ function checkWinner() {
         return 'tie';
     }
 
-    return null; // No winner or tie yet
+    return null;
 }
 
 function togglePlayer() {
     currentPlayer = (currentPlayer === 'red') ? 'yellow' : 'red';
+    const playerSpan = document.querySelector('.current-player');
+    playerSpan.textContent = currentPlayer.charAt(0).toUpperCase() + currentPlayer.slice(1);
+    playerSpan.style.color = currentPlayer;
 }
+
+document.getElementById('reset-button').addEventListener('click', function() {
+    location.reload();
+})

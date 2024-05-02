@@ -35,3 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     adjustSidebar();  // Initial sidebar adjustment
     adjustGameContainerPadding();  // Initial padding adjustment
 });
+
+document.getElementById('reset-button').addEventListener('click', function() {
+    location.reload();
+})

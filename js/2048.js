@@ -68,15 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return colorMap[value] || '#cdc1b4';
     }
 
-    document.getElementById('reset-button').addEventListener('click', function() {
-        gridContainer.innerHTML = '';
-        tiles = [];
-        score = 0;
-        scoreDisplay.innerHTML = score;
-        init();
-    });
-
-
     function move(direction) {
         if (slideTiles(direction)) {
             addNumber();
@@ -179,3 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     init();
 });
+
+document.getElementById('reset-button').addEventListener('click', function() {
+    location.reload();
+})
