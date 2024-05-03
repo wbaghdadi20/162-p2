@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 let currentPlayer = 'red';
 let gameActive = true;
-let board = document.querySelector('.board');
+let board = document.querySelector('.connect4-board');
 
 function createBoard(rows, cols) {
     board.innerHTML = '';

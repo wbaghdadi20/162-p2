@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Arcade - Minesweeper</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/minesweeper.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">&#8592; Back</a>
+        </nav>
+        <h1>Minesweeper</h1>
+    </header>
+    <main>
+        <section class="game-controls">
+            <button id="reset-button">Reset Game</button>
+        </section>
+        <section class="game-rules">
+            <h2>How to Play</h2>
+            <p>Instructions for minesweeper</p>
+        </section>
+        <section class="game-play">
+            <div class="game-container">
+                <div class="buttons">
+                    <button class="difficulty-button">Easy</button>
+                    <button class="difficulty-button">Medium</button>
+                    <button class="difficulty-button">Hard</button>
+                    <button class="flag-button">
+                        <img src = "red-flag.png" alt="Toggle Flag"/>
+                    </button>
+                </div>
+                <div class="minesweeper-board">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Game Arcade. All rights reserved.</p>
+    </footer>
+    <script src="js/minesweeper.js"></script>
+</body>
+</html>

@@ -6,16 +6,13 @@
 .game-container {
     display: flex;
     flex-direction: column;
-}
-
-.game-container {
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
 }
 
-.board {
+.connect4-board {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-gap: 10px;
@@ -58,19 +55,19 @@
 }
 
 .game-controls {
-    background-color: navy;
+    background-color: rgb(72, 72, 150);
 }
 
 button {
-    background-color: #1264bb;
+    background-color: #83bdfc;
 }
 
 button:hover {
-    background-color: #1a8cd8;
+    background-color: #a5d1ff;
 }
 
 @media (max-width: 688px) {
-    .board {
+    .connect4-board {
         height: calc(var(--board-height) * .65);
         width: calc(var(--board-width) * .65);
     }

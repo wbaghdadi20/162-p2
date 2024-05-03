@@ -10,6 +10,7 @@
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 .grid-cell {
@@ -26,11 +27,15 @@
     text-align: center;
 }
 
+.high-score {
+    text-align: right;
+}
+
 .score {
     font-size: 24px;
     font-weight: bold;
     color: #7d736a;
-    margin: 10px 0;
+    margin: 10px;
     padding: 10px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
