@@ -78,8 +78,12 @@
 }
 
 .cell.flagged {
-    background-color: green;
+    background-image: url('../red-flag.png'); /* Update the path to where your image is stored */
+    background-size: cover;  /* This will cover the entire area of the cell */
+    background-position: center; /* This will center the image in the cell */
+    background-repeat: no-repeat;
 }
+
 
 .cell.mine.visible {
     background-color: red; /* Show red for mines */
