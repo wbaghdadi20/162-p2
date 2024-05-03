@@ -21,13 +21,14 @@ const numberColors = new Map([
 ]);
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Select difficulty buttons and flag button
     const difficultyButtons = document.querySelectorAll('.difficulty-button');
     let flagState = 'red-flag';
 
     difficultyButtons.forEach(button => {
         button.addEventListener('click', function() {
             if (isGameOver) {
-                resetGame();
+                isGameOver = false;
             }
             const difficulty = this.textContent.toLowerCase();
             const settings = difficultySettings[difficulty];

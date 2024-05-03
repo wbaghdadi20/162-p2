@@ -3,6 +3,18 @@
     --cell-margin: 2px;
 }
 
+.game-rules {
+    border: 2px solid #808080;   
+}
+
+#reset-button:hover {
+    background-color: #a8a7a7;
+}
+
+.game-controls {
+    background-color: #808080;
+}
+
 .buttons {
     display: flex;
     flex-wrap: wrap;
