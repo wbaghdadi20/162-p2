@@ -5,7 +5,8 @@ let remainingCells = 0;
 const difficultySettings = {
     easy: { rows: 9, cols: 9, mines: 10},
     medium: { rows: 16, cols: 16, mines: 40 },
-    hard: { rows: 16, cols: 30, mines: 99 }
+    hard: { rows: 16, cols: 30, mines: 99 },
+    extreme: { rows: 30, cols: 30, mines: 270 }
 };
 
 const numberColors = new Map([
