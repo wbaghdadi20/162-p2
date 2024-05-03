@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     difficultyButtons.forEach(button => {
         button.addEventListener('click', function() {
             if (isGameOver) {
-                isGameOver = false;
+                resetGame();
             }
             const difficulty = this.textContent.toLowerCase();
             const settings = difficultySettings[difficulty];
@@ -109,13 +109,12 @@ function revealCell() {
     }
 
     this.classList.replace('invisible', 'visible');
-    this.id = 'visible'; // Add the ID 'visible' to the cell
-    this.style.backgroundColor = '#c0c0c0'; // Lighter shade for visible cells
 
     if (this.classList.contains('mine')) {
         gameOver();
     } else {
         remainingCells--;
+        this.id = 'visible'; // Add the ID 'visible' to the cell
         if (remainingCells === 0) {
             winGame();
         }
@@ -132,6 +131,7 @@ function revealCell() {
             revealNeighboringCells(row, col);
         }
     }
+    checkWinCondition();
 }
 
 function countMines(row, col) {
@@ -192,9 +192,33 @@ function winGame() {
     alert('Congratulations! You Won!');
 }
 
+function checkWinCondition() {
+    const cells = document.querySelectorAll('.minesweeper-board .cell');
+    let visibleCells = 0;
+
+    cells.forEach(cell => {
+        if (cell.classList.contains('visible') && !cell.classList.contains('mine')) {
+            visibleCells++;
+        }
+    });
+
+    const totalCells = cells.length;
+    const totalMines = document.querySelectorAll('.minesweeper-board .mine').length;
+
+    if (visibleCells === totalCells - totalMines) {
+        winGame();
+    }
+}
+
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
+}
+
+document.getElementById('reset-button').addEventListener('click', resetGame);
+
+function resetGame() {
+    location.reload();
 }
